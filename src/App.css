@@ -1,0 +1,10 @@
+@import "tailwindcss";
+body {
+    background-image: url("src/assets/gray bg.jpg");
+    background-size: cover;  /* Cover the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* No repeating */
+    width: 100%;
+    min-height: 100vh; /* Full screen */
+    position: relative;
+  }
