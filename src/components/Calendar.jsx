@@ -4,7 +4,8 @@ function Calendar() {
   const [newtt, setNewtt] = useState("");
   const [yearType, setYearType] = useState("");
   const [zemen, setZemen] = useState("");
-
+  const [wenberr, setwenberr] = useState("");
+  const [metkenew, setmetkenew] = useState("");
   const oldt = 5500;
 
   // Handle input change
@@ -12,7 +13,7 @@ function Calendar() {
     setNewtt(event.target.value);
   };
 
-  // Function to calculate year type
+  // ዘመን
   const calculateYearType = (year) => {
     return new Promise((resolve) => {
       let year1 = (year + oldt) % 4;
@@ -27,7 +28,7 @@ function Calendar() {
     });
   };
 
-  // Function to calculate Zemen
+  // ዐወደ ዓመት
   const calculateZemen = (year) => {
     return new Promise((resolve) => {
       let totalYears = year + oldt;
@@ -48,15 +49,33 @@ function Calendar() {
       resolve(day);
     });
   };
-   const wenber = (year) => {
+// አበቅቴ
+  const wenber = (year) => {
     return new Promise((resolve) => {
       let totalYears = year + oldt;
-      let nyear = Math.floor(totalYears / 19);
-      let wenber = nyear -1;
-      con
-    });
+    let nyear = totalYears % 19;
+    let wenber = nyear - 1;
+    let we = wenber * 11;
 
-   };
+    if (we > 30) {
+      we = we % 30;
+    }
+    resolve(we); // Pass result to .then()
+    });
+  }
+// መጥቅዕ
+  const metke = (year) => {
+    return new Promise((resolve) => {
+      let totalYears = year + oldt;
+    let nyear = totalYears % 19;
+    let wenber = nyear - 1;
+    let we = wenber * 19;
+    if (we > 30) {
+      we = we % 30;
+    }
+    resolve(we); // Pass result to .then()
+    });
+  }
 
   // Function to handle calculations
   const calculate = () => {
@@ -66,12 +85,24 @@ function Calendar() {
       return;
     }
 
-    Promise.all([calculateYearType(year), calculateZemen(year)])
-      .then(([yearType, day]) => {
-        setYearType(yearType);
-        setZemen(day);
-      })
-      .catch((error) => console.error(error));
+    calculateYearType(year)
+    .then((yearType) => {
+      setYearType(yearType);
+      return calculateZemen(year);
+    })
+    .then((day) => {
+      setZemen(day);
+      return wenber(year);
+    })
+    .then((wenberr) => {
+      setwenberr(wenberr);
+      return metke(year);
+    })
+    .then((metkenew) => {
+      setmetkenew(metkenew);
+    })
+    .catch((error) => console.error(error));
+  
   };
 
   return (
@@ -103,8 +134,8 @@ function Calendar() {
     <div className="gap-4 min-w-100 pl-9">
       <h2 className="text-[15px] text-white font-bold">ዘመን: {yearType || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ዐወደ ዓመት : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">አበቅቴ : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">መጥቅዕ : {zemen || "--"}</h2>
+      <h2 className="text-[15px] text-white font-bold">አበቅቴ : { wenberr || "--"}</h2>
+      <h2 className="text-[15px] text-white font-bold">መጥቅዕ : {metkenew || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ነነዌ : {zemen || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ዐቢይ ጾም : {zemen || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ደብረ ዘይት : {zemen || "--"}</h2>
@@ -114,7 +145,7 @@ function Calendar() {
       <h2 className="text-[15px] text-white font-bold">ርክበ ካህናት : {zemen || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ዕርገት : {zemen || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ጰራቅሊጦስ : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ጰራቅሊጦስ : {zemen || "--"}</h2>
+
     </div>
   </div>
 </div>
