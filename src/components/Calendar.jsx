@@ -6,6 +6,7 @@ function Calendar() {
   const [zemen, setZemen] = useState("");
   const [wenberr, setwenberr] = useState("");
   const [metkenew, setmetkenew] = useState("");
+  const [tent_yon, settent_yon] = useState("");
   const oldt = 5500;
 
   // Handle input change
@@ -76,7 +77,52 @@ function Calendar() {
     resolve(we); // Pass result to .then()
     });
   }
+  const yon  = (year) => {
+  return new Promise((resolve) => {
+    let totalYears = parseInt(year) + oldt;
+    let ra = Math.floor(totalYears / 4);
+    let nyear = (totalYears + ra) % 7;
+    let zemen = nyear - 1;
 
+    // Handle wrap-around (if zemen == -1)
+    if (zemen < 0) zemen = 6;
+
+    let dayName =
+      zemen === 0 ? zemen=5 : 
+      zemen === 1 ? zemen=4 :
+      zemen === 2 ? zemen=3 :
+      zemen === 3 ? zemen=2 :
+      zemen === 4 ? zemen=8 :
+      zemen === 5 ? zemen=7 :
+      zemen === 6 || -1 ? zemen=6 :
+      "Invalid year";
+
+    resolve(yon);
+  });
+};
+const nenewe = (yonValue, metkeValue) => {
+  return new Promise((resolve) => {
+    let result = (yonValue + metkeValue)%30;
+let nene;
+
+if (metkeValue > 14) {
+  nene = "ጥር"; // Tirr
+} else if (result > 30) {
+  let nenew = result % 30;
+  nene = "የካቲት" + nenew;
+} else {
+  nene = "የካቲት"; // Yekatit
+}
+
+let neneww = nene + " " + result;
+
+    
+    // Example operation
+    resolve(neneww);
+  });
+};
+
+let yonValue, metkeValue;
   // Function to handle calculations
   const calculate = () => {
     let year = parseInt(newtt);
@@ -101,12 +147,16 @@ function Calendar() {
     .then((metkenew) => {
       setmetkenew(metkenew);
     })
+    .then(yon)
+    .then((tent_yon) => {
+      settent_yon(tent_yon);
+    })
     .catch((error) => console.error(error));
   
   };
 
   return (
-    <div className="md:flex-nowrap md:flex-row flex-col gap-4 bg-black/70">
+    <div className="md:flex-nowrap md:flex-row flex flex-col gap-4 bg-black/70">
       <div className="flex flex-col mx-auto justify-evenly items-center p-4">
         <h1 className="text-white text-[20px] font-bold">
           Enter The Year You Want To Calculate The Calendar
@@ -119,18 +169,18 @@ function Calendar() {
           placeholder="Enter Year"
           value={newtt}
           onChange={handleChange}
-          className="border-2  m-3 border-yellow-300 rounded-[15px] placeholder-white text-white pl-2"
+          className="border-2  m-3 border-yellow-300 border-solid rounded-[15px] placeholder-white text-white pl-2"
         />
         <input
           type="button"
           value="Calculate"
           onClick={calculate}
-          className="hover:bg-gray-300 hover:text-black min-w-30 min-h-10 bg-yellow-300 text-gray text-[15px] font-bold border-2 border-yellow-300 rounded-[15px]"
+          className="hover:bg-gray-300 hover:text-black min-w-30 min-h-10 bg-yellow-300 text-gray text-[15px] font-bold border-2 border-yellow-300 border-solid rounded-[15px]"
         />
       </div>
 
       <div className="flex justify-center items-center p-4">
-  <div className="bg-black/70 max-w-200 flex justify-center items-center p-2 rounded-[8px] border border-yellow-300">
+  <div className="bg-black/70 max-w-200 flex justify-center items-center p-2 rounded-[8px] border border-yellow-300 border-solid">
     <div className="gap-4 min-w-100 pl-9">
       <h2 className="text-[15px] text-white font-bold">ዘመን: {yearType || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ዐወደ ዓመት : {zemen || "--"}</h2>
