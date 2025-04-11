@@ -6,7 +6,9 @@ function Calendar() {
   const [zemen, setZemen] = useState("");
   const [wenberr, setwenberr] = useState("");
   const [metkenew, setmetkenew] = useState("");
-  const [tent_yon, settent_yon] = useState("");
+  const [nenew, setnenew] = useState("");
+  const [abiytsom, setabiytsom] = useState("");
+
   const oldt = 5500;
 
   // Handle input change
@@ -53,7 +55,7 @@ function Calendar() {
 // አበቅቴ
   const wenber = (year) => {
     return new Promise((resolve) => {
-      let totalYears = year + oldt;
+    let totalYears = year + oldt;
     let nyear = totalYears % 19;
     let wenber = nyear - 1;
     let we = wenber * 11;
@@ -77,52 +79,66 @@ function Calendar() {
     resolve(we); // Pass result to .then()
     });
   }
-  const yon  = (year) => {
-  return new Promise((resolve) => {
-    let totalYears = parseInt(year) + oldt;
-    let ra = Math.floor(totalYears / 4);
-    let nyear = (totalYears + ra) % 7;
-    let zemen = nyear - 1;
+  const yon = (year, metkeValue) => {
+    return new Promise((resolve) => {
+      let totalYears = year + oldt;
+      let ra = Math.floor(totalYears / 4);
+      let nyear = (totalYears + ra) % 7;
+      let yon = nyear - 1;
+  
+      let arfewer = metkeValue > 14 ? 1 : 2;
+      let elet = metkeValue + yon + (arfewer * 2);
+      let zemen = elet % 7;
+  
+      let mappedZemen =
+        zemen === 0 ? 8 :
+        zemen === 1 ? 7 :
+        zemen === 2 ? 6 :
+        zemen === 3 ? 5 :
+        zemen === 4 ? 4 :
+        zemen === 5 ? 3 :
+        zemen === 6 ? 2 :
+        "Invalid year";
+  
+      // Nenewe logic
+      let hamer = (mappedZemen + metkeValue) % 30;
+      let som;
+      if (metkeValue > 14 && (mappedZemen + metkeValue) < 30) {
+        som = "ጥር " + hamer;
+      } else {
+        som = "የካቲት " + hamer;
+      }
+  
+      resolve(som); // Return final nenewe string
+    });
+  };
 
-    // Handle wrap-around (if zemen == -1)
-    if (zemen < 0) zemen = 6;
-
-    let dayName =
-      zemen === 0 ? zemen=5 : 
-      zemen === 1 ? zemen=4 :
-      zemen === 2 ? zemen=3 :
-      zemen === 3 ? zemen=2 :
-      zemen === 4 ? zemen=8 :
-      zemen === 5 ? zemen=7 :
-      zemen === 6 || -1 ? zemen=6 :
-      "Invalid year";
-
-    resolve(yon);
-  });
-};
-const nenewe = (yonValue, metkeValue) => {
-  return new Promise((resolve) => {
-    let result = (yonValue + metkeValue)%30;
-let nene;
-
-if (metkeValue > 14) {
-  nene = "ጥር"; // Tirr
-} else if (result > 30) {
-  let nenew = result % 30;
-  nene = "የካቲት" + nenew;
-} else {
-  nene = "የካቲት"; // Yekatit
-}
-
-let neneww = nene + " " + result;
-
-    
-    // Example operation
-    resolve(neneww);
-  });
-};
-
-let yonValue, metkeValue;
+  const abeysoma = (som) => {
+    return new Promise((resolve) => {
+      // Split the string, e.g., "ጥር 15" → ["ጥር", "15"]
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+  
+      // Add 14 days
+      let newDay = day + 14;
+      let newMonth = month;
+  
+      // Ethiopian month lengths are typically 30 days
+      if (newDay > 30) {
+        newDay -= 30;
+  
+        // Handle month switch (simplified logic)
+        newMonth = month === "ጥር" ? "የካቲት" :
+                   month === "የካቲት" ? "መጋቢት" :
+                   "???"; // add more if needed
+      }
+  
+      const abiy = `${newMonth} ${newDay}`;
+      resolve(abiy);
+    });
+  };
+  
+  
   // Function to handle calculations
   const calculate = () => {
     let year = parseInt(newtt);
@@ -130,30 +146,37 @@ let yonValue, metkeValue;
       alert("Invalid input. Please enter a valid number.");
       return;
     }
-
-    calculateYearType(year)
-    .then((yearType) => {
-      setYearType(yearType);
-      return calculateZemen(year);
-    })
-    .then((day) => {
-      setZemen(day);
-      return wenber(year);
-    })
-    .then((wenberr) => {
-      setwenberr(wenberr);
-      return metke(year);
-    })
-    .then((metkenew) => {
-      setmetkenew(metkenew);
-    })
-    .then(yon)
-    .then((tent_yon) => {
-      settent_yon(tent_yon);
-    })
-    .catch((error) => console.error(error));
   
+    let metkeValue; // shared value
+  
+    calculateYearType(year)
+      .then((yearType) => {
+        setYearType(yearType);
+        return calculateZemen(year);
+      })
+      .then((day) => {
+        setZemen(day);
+        return wenber(year);
+      })
+      .then((wenberr) => {
+        setwenberr(wenberr);
+        return metke(year);
+      })
+      .then((metkenewVal) => {
+        setmetkenew(metkenewVal);
+        metkeValue = metkenewVal; //
+        return yon(year, metkeValue); 
+      })
+      .then((finalNenewe) => {
+        setnenew(finalNenewe); // Set Nenewe string 
+        return abeysoma(finalNenewe);
+      }).then((abiyResult) => {
+        setabiytsom(abiyResult); // show result
+      })
+      .catch((error) => console.error(error));
   };
+  
+
 
   return (
     <div className="md:flex-nowrap md:flex-row flex flex-col gap-4 bg-black/70">
@@ -186,15 +209,15 @@ let yonValue, metkeValue;
       <h2 className="text-[15px] text-white font-bold">ዐወደ ዓመት : {zemen || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">አበቅቴ : { wenberr || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">መጥቅዕ : {metkenew || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ነነዌ : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ዐቢይ ጾም : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ደብረ ዘይት : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ሆሣዕና : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ስቅለት : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ትንሣኤ : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ርክበ ካህናት : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ዕርገት : {zemen || "--"}</h2>
-      <h2 className="text-[15px] text-white font-bold">ጰራቅሊጦስ : {zemen || "--"}</h2>
+      <h2 className="text-[15px] text-white font-bold">ነነዌ : {nenew || "--"}</h2>
+      <h2 className="text-[15px] text-white font-bold">ዐቢይ ጾም :{abiytsom || "--"} </h2>
+      <h2 className="text-[15px] text-white font-bold">ደብረ ዘይት : </h2>
+      <h2 className="text-[15px] text-white font-bold">ሆሣዕና : </h2>
+      <h2 className="text-[15px] text-white font-bold">ስቅለት : </h2>
+      <h2 className="text-[15px] text-white font-bold">ትንሣኤ : </h2>
+      <h2 className="text-[15px] text-white font-bold">ርክበ ካህናት : </h2>
+      <h2 className="text-[15px] text-white font-bold">ዕርገት : </h2>
+      <h2 className="text-[15px] text-white font-bold">ጰራቅሊጦስ : </h2>
 
     </div>
   </div>
