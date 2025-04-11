@@ -8,6 +8,8 @@ function Calendar() {
   const [metkenew, setmetkenew] = useState("");
   const [nenew, setnenew] = useState("");
   const [abiytsom, setabiytsom] = useState("");
+  const [debrezeytVal, setDebrezeytVal] = useState("");
+
 
   const oldt = 5500;
 
@@ -137,8 +139,35 @@ function Calendar() {
       resolve(abiy);
     });
   };
+
+  const debrezeyt = (som) => {
+    return new Promise((resolve) => {
+      // Split the string, e.g., "ጥር 15" → ["ጥር", "15"]
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
   
+      // Add 14 days
+      let newDay = day + 41;
+      let newMonth = month;
   
+      // Ethiopian month lengths are typically 30 days
+      if (newDay > 30) {
+        newDay =newDay% 30;
+  
+        }// Handle month switch (simplified logic)
+        newMonth = month === "ጥር" ? "የካቲት" :
+                   month === "የካቲት" ? "መጋቢት" :
+                   month === "መጋቢት" ? "ሚያዚያ" :
+                   "???"; // add more if needed
+      
+  
+      const debere = `${newMonth} ${newDay}`;
+      resolve(debere);
+    });
+  };
+
+  
+
   // Function to handle calculations
   const calculate = () => {
     let year = parseInt(newtt);
@@ -171,7 +200,10 @@ function Calendar() {
         setnenew(finalNenewe); // Set Nenewe string 
         return abeysoma(finalNenewe);
       }).then((abiyResult) => {
-        setabiytsom(abiyResult); // show result
+        setabiytsom(abiyResult); 
+        return debrezeyt(abiyResult);// show result
+      }).then((debere) => {
+        setDebrezeytVal(debere); // Set Debre Zeit value
       })
       .catch((error) => console.error(error));
   };
@@ -211,7 +243,7 @@ function Calendar() {
       <h2 className="text-[15px] text-white font-bold">መጥቅዕ : {metkenew || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ነነዌ : {nenew || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ዐቢይ ጾም :{abiytsom || "--"} </h2>
-      <h2 className="text-[15px] text-white font-bold">ደብረ ዘይት : </h2>
+      <h2 className="text-[15px] text-white font-bold">ደብረ ዘይት   :{debrezeytVal || "--"}  </h2>
       <h2 className="text-[15px] text-white font-bold">ሆሣዕና : </h2>
       <h2 className="text-[15px] text-white font-bold">ስቅለት : </h2>
       <h2 className="text-[15px] text-white font-bold">ትንሣኤ : </h2>
