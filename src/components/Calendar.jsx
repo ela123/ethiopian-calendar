@@ -9,7 +9,30 @@ function Calendar() {
   const [nenew, setnenew] = useState("");
   const [abiytsom, setabiytsom] = useState("");
   const [debrezeytVal, setDebrezeytVal] = useState("");
+  const [honena, sethonena] = useState("");
+  const [sikeltVal, setSikeltVal] = useState("");
+  const [tensiaVal, setTensiaVal] = useState("");
+  const [rekbeVal, setRekbeVal] = useState("");
+  const [ergetVal, setErgetVal] = useState("");
+  const [mefesVal, setMefesVal] = useState("");
+  const [somhawaryatVal, setSomhawaryatVal] = useState("");
+  const [somdehentVal, setSomdehentVal] = useState("");
 
+  const ethiopianMonths = [
+    "መስከረም",
+    "ጥቅምት",
+    "ኅዳር",
+    "ታኅሣስ",
+    "ጥር",
+    "የካቲት",
+    "መጋቢት",
+    "ሚያዚያ",
+    "ግንቦት",
+    "ሰኔ",
+    "ሀምሌ",
+    "ነሐሴ",
+    "ጷጉሜን"
+  ];
 
   const oldt = 5500;
 
@@ -145,24 +168,294 @@ function Calendar() {
       // Split the string, e.g., "ጥር 15" → ["ጥር", "15"]
       const [month, dayStr] = som.split(" ");
       const day = parseInt(dayStr);
+      let totalDays = day + 41;
   
-      // Add 14 days
-      let newDay = day + 41;
-      let newMonth = month;
+
   
-      // Ethiopian month lengths are typically 30 days
-      if (newDay > 30) {
-        newDay =newDay% 30;
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
   
-        }// Handle month switch (simplified logic)
-        newMonth = month === "ጥር" ? "የካቲት" :
-                   month === "የካቲት" ? "መጋቢት" :
-                   month === "መጋቢት" ? "ሚያዚያ" :
-                   "???"; // add more if needed
-      
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
   
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+
       const debere = `${newMonth} ${newDay}`;
       resolve(debere);
+    });
+  };
+  const hosaena = (som) => {
+    return new Promise((resolve) => {
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+      let totalDays = day + 62;
+  
+
+  
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
+  
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
+  
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+      const hosaena = `${newMonth} ${newDay}`;
+      resolve(hosaena);
+    });
+  };
+  
+  const sikelt = (som) => {
+    return new Promise((resolve) => {
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+      let totalDays = day + 67;
+  
+
+  
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
+  
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
+  
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+      const siklt = `${newMonth} ${newDay}`;
+      resolve(siklt);
+    });
+  };
+  
+  const tensia = (som) => {
+    return new Promise((resolve) => {
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+      let totalDays = day + 69;
+  
+
+  
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
+  
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
+  
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+      const tensia = `${newMonth} ${newDay}`;
+      resolve(tensia);
+    });
+  };
+
+  const rekbe = (som) => {
+    return new Promise((resolve) => {
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+      let totalDays = day + 93;
+  
+
+  
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
+  
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
+  
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+      const rekebe = `${newMonth} ${newDay}`;
+      resolve(rekebe);
+    });
+  };
+  const erget = (som) => {
+    return new Promise((resolve) => {
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+      let totalDays = day + 108;
+  
+
+  
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
+  
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
+  
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+      const erget = `${newMonth} ${newDay}`;
+      resolve(erget);
+    });
+  };
+  const mefeskidus = (som) => {
+    return new Promise((resolve) => {
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+      let totalDays = day + 118;
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
+  
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
+  
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+      const menfeskdus = `${newMonth} ${newDay}`;
+      resolve(menfeskdus);
+    });
+  };
+  
+
+  const somhawaryat = (som) => {
+    return new Promise((resolve) => {
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+      let totalDays = day + 119;
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
+  
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
+  
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+      const somhawarya = `${newMonth} ${newDay}`;
+      resolve(somhawarya);
+    });
+  };
+  const   somdehent = (som) => {
+    return new Promise((resolve) => {
+      const [month, dayStr] = som.split(" ");
+      const day = parseInt(dayStr);
+      let totalDays = day + 121;
+      // Get index of current month
+      const currentMonthIndex = ethiopianMonths.indexOf(month);
+      if (currentMonthIndex === -1) {
+        resolve("Invalid month");
+        return;
+      }
+  
+      // Add days and calculate new month and day
+      let newDay = totalDays;
+      let newMonthIndex = currentMonthIndex;
+  
+      while (newDay > 30) {
+        newDay -= 30;
+        newMonthIndex++;
+  
+        if (newMonthIndex >= ethiopianMonths.length) {
+          newMonthIndex = 0; // wrap around
+        }
+      }
+  
+      const newMonth = ethiopianMonths[newMonthIndex];
+      const somdehent = `${newMonth} ${newDay}`;
+      resolve(somdehent);
     });
   };
 
@@ -176,7 +469,7 @@ function Calendar() {
       return;
     }
   
-    let metkeValue; // shared value
+    let metkeValue , nenew; // shared value
   
     calculateYearType(year)
       .then((yearType) => {
@@ -198,20 +491,52 @@ function Calendar() {
       })
       .then((finalNenewe) => {
         setnenew(finalNenewe); // Set Nenewe string 
+        nenew=finalNenewe
         return abeysoma(finalNenewe);
       }).then((abiyResult) => {
         setabiytsom(abiyResult); 
-        return debrezeyt(abiyResult);// show result
+        return debrezeyt(nenew);// show result
       }).then((debere) => {
-        setDebrezeytVal(debere); // Set Debre Zeit value
-      })
-      .catch((error) => console.error(error));
-  };
+        setDebrezeytVal(debere); 
+        return hosaena(nenew);// Set Debre Zeit value
+      }).then((hosaena) => {
+        sethonena(hosaena); 
+        return sikelt(nenew);
+})
+.then((sikeltResult) => {
+  setSikeltVal(sikeltResult);
+  return tensia(nenew);
+})
+.then((tensiaResult) => {
+  setTensiaVal(tensiaResult);
+  return rekbe(nenew);
+})
+.then((rekbeResult) => {
+  setRekbeVal(rekbeResult);
+  return erget(nenew);
+})
+.then((ergetResult) => {
+  setErgetVal(ergetResult);
+  return mefeskidus(nenew);
+})
+.then((menfesResult) => {
+  setMefesVal(menfesResult);
+  return somhawaryat(nenew);
+})
+.then((somhawaryaRes) => {
+  setSomhawaryatVal(somhawaryaRes);
+  return somdehent(nenew);
+})
+.then((somdehentRes) => {
+  setSomdehentVal(somdehentRes);
+})
+    .catch((error) => console.error(error));
+};
   
 
 
   return (
-    <div className="md:flex-nowrap md:flex-row flex flex-col gap-4 bg-black/70">
+    <div className="md:flex-nowrap md:flex-col flex-col flex gap-4 bg-black/70">
       <div className="flex flex-col mx-auto justify-evenly items-center p-4">
         <h1 className="text-white text-[20px] font-bold">
           Enter The Year You Want To Calculate The Calendar
@@ -236,20 +561,22 @@ function Calendar() {
 
       <div className="flex justify-center items-center p-4">
   <div className="bg-black/70 max-w-200 flex justify-center items-center p-2 rounded-[8px] border border-yellow-300 border-solid">
-    <div className="gap-4 min-w-100 pl-9">
-      <h2 className="text-[15px] text-white font-bold">ዘመን: {yearType || "--"}</h2>
+    <div className="gap-4 min-w-70 max-w-100 pl-9">
+      <h2 className="text-[15px] text-white font-bold">ዘመን:   {yearType || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ዐወደ ዓመት : {zemen || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">አበቅቴ : { wenberr || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">መጥቅዕ : {metkenew || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ነነዌ : {nenew || "--"}</h2>
       <h2 className="text-[15px] text-white font-bold">ዐቢይ ጾም :{abiytsom || "--"} </h2>
       <h2 className="text-[15px] text-white font-bold">ደብረ ዘይት   :{debrezeytVal || "--"}  </h2>
-      <h2 className="text-[15px] text-white font-bold">ሆሣዕና : </h2>
-      <h2 className="text-[15px] text-white font-bold">ስቅለት : </h2>
-      <h2 className="text-[15px] text-white font-bold">ትንሣኤ : </h2>
-      <h2 className="text-[15px] text-white font-bold">ርክበ ካህናት : </h2>
-      <h2 className="text-[15px] text-white font-bold">ዕርገት : </h2>
-      <h2 className="text-[15px] text-white font-bold">ጰራቅሊጦስ : </h2>
+      <h2 className="text-[15px] text-white font-bold">ሆሣዕና :{honena || "--"} </h2>
+      <h2 className="text-[15px] text-white font-bold">ስቅለት :{sikeltVal || "--"} </h2>
+      <h2 className="text-[15px] text-white font-bold">ትንሣኤ :{tensiaVal || "--"} </h2>
+      <h2 className="text-[15px] text-white font-bold">ርክበ ካህናት :{rekbeVal || "--"} </h2>
+      <h2 className="text-[15px] text-white font-bold">ዕርገት :{ergetVal || "--"} </h2>
+      <h2 className="text-[15px] text-white font-bold">ጰራቅሊጦስ :{mefesVal || "--"} </h2>
+      <h2 className="text-[15px] text-white font-bold">ጸመ ሐዋርያት (የሰኔ ጾም)  :{somhawaryatVal || "--"} </h2>
+      <h2 className="text-[15px] text-white font-bold">ጸመ ድኅነት  :{somdehentVal || "--"} </h2>
 
     </div>
   </div>

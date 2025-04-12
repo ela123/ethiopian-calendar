@@ -18,10 +18,12 @@ function App() {
     exit={{ opacity: 0 }}
     transition={{ duration: 1.3 }}
     >
-      <Header/>
+      {/* <Header/>
       <Home/>
       <History/>
       <Calendar/>
+      <Footer /> */}
+      
       </motion.div>
     </>
   )
