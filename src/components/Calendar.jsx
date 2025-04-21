@@ -543,7 +543,7 @@ function Calendar() {
         </h1>
       </div>
 
-      <div className="flex  mx-auto flex flex-col  justify-center items-center">
+      <div className="flex  mx-auto  flex-col  justify-center items-center">
         <input
           type="number"
           placeholder="Enter Year"

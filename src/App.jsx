@@ -5,16 +5,16 @@ import History from './components/History';
 import Calendar from './components/Calendar';
 import Footer from './components/Footer';
 import './App.css';
-import Historyfull from './components/Historyfull';
 import Learn from './components/Learn';
+import Historynew from './components/Historynew';
 
 function App() {
   // Section references
   const homeRef = useRef("/Home");
   const historyRef = useRef("/History");
   const calendarRef = useRef("/Calendar");
-  const historyfullRef = useRef("/Historyfull");
   const learnRef = useRef(null);
+  const historynewRef = useRef(null);
 
   return (
     <>
@@ -24,6 +24,7 @@ function App() {
           history: () => historyRef.current?.scrollIntoView({ behavior: 'smooth' }),
           calendar: () => calendarRef.current?.scrollIntoView({ behavior: 'smooth' }),
           learn: () => learnRef.current?.scrollIntoView({ behavior: 'smooth' }),
+          historynew: () => historynewRef.current?.scrollIntoView({ behavior: 'smooth' }),
           
         }}
       />
@@ -42,6 +43,9 @@ function App() {
 
       <div ref={learnRef}>
   <Learn />
+</div>
+        <div ref={historynewRef}>
+  <Historynew />
 </div>
 
 

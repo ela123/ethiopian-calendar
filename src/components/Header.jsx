@@ -5,7 +5,7 @@ export default function Header({ scrollToSection }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-[#AB6969] opacity-80 p-4 sticky top-0 z-50">
+    <nav className="bg-[#AB6969] opacity-80 p-2 sticky top-0 z-20">
       <div className="max-w-7xl mx-auto flex justify-evenly items-center">
         {/* Logo */}
         <div className='flex items-center gap-2'>
@@ -18,7 +18,7 @@ export default function Header({ scrollToSection }) {
           <li className="hover:text-black cursor-pointer" onClick={scrollToSection.home}>Home</li>
           <li className="hover:text-black cursor-pointer" onClick={scrollToSection.history}>History</li>
           <li className="hover:text-black cursor-pointer" onClick={scrollToSection.calendar}>Calendar</li>
-          <li className="hover:text-black cursor-pointer">Find lost days</li>
+          <li className="hover:text-black cursor-pointer" onClick={scrollToSection.historynew} >Find lost days</li>
           <li className="hover:text-black cursor-pointer" onClick={scrollToSection.learn}>Learn</li>
 
         </ul>
@@ -35,6 +35,7 @@ export default function Header({ scrollToSection }) {
           <li onClick={() => { setIsOpen(false); scrollToSection.home(); }}>Home</li>
           <li onClick={() => { setIsOpen(false); scrollToSection.history(); }}>History</li>
           <li onClick={() => { setIsOpen(false); scrollToSection.calendar(); }}>Calendar</li>
+          <li onClick={() => { setIsOpen(false); scrollToSection.historynew(); }}>historynew</li>
           <li onClick={() => { setIsOpen(false); scrollToSection.learn(); }}>Learn</li>
 
         </ul>
