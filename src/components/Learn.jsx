@@ -243,11 +243,234 @@ Since the 1st. of Meskerem is Sunday, then the 21st of Meskerem is on Saturday w
 </table>
 
 <br></br><b>6.3 Mebaja Hamer</b> is obtained by adding Beale Metqi and Tewsak of the day of Beale Metqi. If the result is greater than 30 as usual the remainder is taken.<br></br>
-               
-                </p>
+<p className='text-center'>
+Mebaja Hamer = Beale Metqi + Tewsak  of the day of Beale Metqi<br></br>
 
-                 <div className='flex flex-row justify-end text-[#0E008E] hover:text-black items-center gap-2'>
-        </div>
+ 
+
+Example: In 2015 E.C 
+<br></br>
+Recall Beale Metqi is Meskerem 21 Saturday
+<br></br>
+Mebaja Hamer = 21 + Tewsak of Saturday
+<br></br>
+Recall on the above list Tewsak of Saturday = 8 
+<br></br>
+Mebaja Hamer = 21 + Tewsak  of Saturday= 21 + 8 =29
+<br></br>
+Mebaja Hamer = 29
+<br></br>
+ 
+
+But if Beale Metqi is in Meskerem and it is added with Tewsak of the day to be greater than 30, then Nineveh is in Yekatit by taking the extra days above 30.
+<br></br></p>
+
+
+<p>
+  <b>
+7.   Calculating Holy days and Fasting days</b> <br></br>
+
+To obtain Fasting days, first it is necessary to get the date for Nineveh. The fasting date of Nineveh is the same as the Mebaja Hamer number. The Nineveh fasting month is obtained by the following rules:
+<br></br><p className='text-center'>
+· If Metqi is above 14, Beale Metqi is in Meskerem, then Nineveh is in Tirr. 
+<br></br>
+· If Metqi is below 14, Beale Metqi is in Tikimt, then Nineveh is in Yekatit.
+<br></br>
+Nineveh fasting = the Mebaja Hamer number
+<br></br>
+Nineveh fasting =Tirr 29 <br></br>
+</p>
+ 
+<br></br>
+Tewsak is the number of days from the start of Nineveh to the starting day of the fast or holy day. This means if the number of days are greater than 30, it's divided by 30 and the remainder will be Tewsak.
+<br></br>
+</p>
+ 
+
+Example:<br></br>
+
+For Debre Zeit, the number of days after Nineveh is 41, so 41 divided by 30 = 1 with 11 remanding. Therefore, the Tewsak of Debre Zeit is 11. 
+<br></br>
+
+<table className="border border-gray-400 border-solid border-collapse w-full text-center mt-8">
+  <thead className="bg-gray-200">
+    <tr>
+      <th className="border border-gray-400 border-solid px-4 py-2">Fasting Dates and Holy Days</th>
+      <th className="border border-gray-400 border-solid px-4 py-2">Tewsak</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Abiy Tsome</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">14</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Debre Zeit</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">11</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Hosanna</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">2</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Good Friday</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">7</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Tinsaye</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">9</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Rkbe Kahnat</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">3</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Ascension</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">18</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Paraclete</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">28</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Fast of the Holy Apostles</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">29</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-400 border-solid px-4 py-2">Wednesday and Friday Weekly Fast</td>
+      <td className="border border-gray-400 border-solid px-4 py-2">1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<b>Note</b>: Nineveh doesn't have Tewsak, because it is the starting point of the calculations of the Fasting days and Holy days. However, to obtain Nineveh directly, take the Mebaja Hamer number as explained above.
+<br></br>
+<ol>
+  <li>
+    <strong>1.</strong> To obtain Abiy Tsome, Count 14 days (Tewsak of Abiy Tsome = 14) after Nineveh.
+    <ul>
+      <li><strong>Abiy Tsome = Tirr 29 + 14 days = Yekatit 13</strong></li>
+    </ul>
+  </li>
+  <li>
+    <strong>2.</strong> To obtain Debre Zeit, Count 41 days after Nineveh.
+    <ul>
+      <li>Tewsak of Debre Zeit(11) + 30 = 11 + 30 = 41</li>
+      <li><strong>Debre Zeit = Tirr 29 + 41 days = Megabit 10</strong></li>
+    </ul>
+  </li>
+  <li>
+    <strong>3.</strong> To obtain Hosanna, Count 62 days after Nineveh.
+    <ul>
+      <li>Tewsak of Hosanna(2) + (2 x 30) = 2 + 60 = 62</li>
+      <li><strong>Hosanna = Tirr 29 + 62 days = Miazia 1</strong></li>
+    </ul>
+  </li>
+  <li>
+    <strong>4.</strong> To obtain Siklet (Good Friday), Count 67 days after Nineveh.
+    <ul>
+      <li>Tewsak of Good Friday(7) + (2 x 30) = 7 + 60 = 67</li>
+      <li><strong>Siklet = Tirr 29 + 67 days = Miazia 6</strong></li>
+    </ul>
+  </li>
+  <li>
+    <strong>5.</strong> To obtain Tinsaye (Resurrection), Count 69 days after Nineveh.
+    <ul>
+      <li>Tewsak of Tinsaye(9) + (2 x 30) = 9 + 60 = 69</li>
+      <li><strong>Tinsaye = Tirr 29 + 69 days = Miazia 8</strong></li>
+    </ul>
+  </li>
+  <li>
+    <strong>6.</strong> To obtain Rikbe Kahnkat, Count 93 days after Nineveh.
+    <ul>
+      <li>Tewsak of Rikbe Kahnkat(3) + (3 x 30) = 3 + 90 = 93</li>
+      <li><strong>Rikbe Kahnkat = Tirr 29 + 93 days = Ginbot 2</strong></li>
+    </ul>
+  </li>
+  <li>
+    <strong>7.</strong> To obtain Ascension, Count 108 days after Nineveh.
+    <ul>
+      <li>Tewsak of Ascension(18) + (3 x 30) = 18 + 90 = 108</li>
+      <li><strong>Ascension = Tirr 29 + 108 days = Ginbot 17</strong></li>
+    </ul>
+  </li>
+</ol>
+<ol start="8">
+  <li>
+    <strong>8.</strong> To obtain Paraclete, Count 118 days after Nineveh.
+    <ul>
+      <li>Tewsak of Paraclete(28) + (3 x 30) = 28 + 90 = 118</li>
+      <li><strong>Paraclete = Tirr 29 + 118 days = Ginbot 27</strong></li>
+    </ul>
+  </li>
+  <li>
+    <strong>9.</strong> To obtain Fasting of Holy Apostles, Count 119 days after Nineveh.
+    <ul>
+      <li>Tewsak of Fasting of Holy Apostles(29) + (3 x 30) = 29 + 90 = 119</li>
+      <li><strong>Holy Apostles = Tirr 29 + 119 days = Ginbot 28</strong></li>
+    </ul>
+  </li>
+  <li>
+    <strong>10.</strong> To obtain Weekly fast (Wednesday and Friday), Count 121 days after Nineveh.
+    <ul>
+      <li>Tewsak of Weekly fast - Wednesday and Friday(1) + (4 x 30) = 1 + 120 = 121</li>
+      <li><strong>Weekly Fast = Tirr 29 + 119 days = Ginbot 30</strong></li>
+    </ul>
+  </li>
+</ol>
+
+
+<p><strong>Note:</strong> The Weekly Wednesday and Friday fasts also called Tsome dihenet meaning Fast of Salvation.</p>
+
+<h3 class="text-center font-bold mt-5">Happy Ethiopian New Year!!</h3>
+
+<div class="text-center font-semibold mt-5">
+  Source: 
+  <a 
+    href="https://www.eotc-ma.com/about-our-church" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="text-blue-600 hover:text-blue-800 underline"
+  >
+    Ethiopian Orthodox Church Medhane Alem Canada
+  </a>
+</div>
+
+
+                </p>
+<br></br><br></br>
+<div class="text-center font-medium mt-3">
+  በአማርኛ ለመማር እባክዎን እነዚህን ፋይሎች ያውርዱ፡፡
+</div>
+
+<div class="text-center font-medium mt-3">
+  በአማርኛ ለመማር እባክዎን እነዚህን ፋይሎች ያውርዱ፡፡
+</div>
+
+<div class="text-center mt-4">
+  <a 
+    href="path/to/baherehasab.pdf" 
+    download="baherehasab.pdf" 
+    class="text-blue-600 hover:text-blue-800 underline"
+  >
+    Baherehasab (1MB)
+  </a>
+</div>
+
+<div class="text-center mt-2">
+  <a 
+    href="path/to/ባሕረ_ሐሳብ_ጌታቸው_ኃይሌ.pdf" 
+    download="ባሕረ_ሐሳብ_ጌታቸው_ኃይሌ.pdf" 
+    class="text-blue-600 hover:text-blue-800 underline"
+  >
+    ባሕረ ሐሳብ - ጌታቸው ኃይሌ (5.4MB)
+  </a>
+</div>
+
+
+
+
         </div>
     </div>
   )
