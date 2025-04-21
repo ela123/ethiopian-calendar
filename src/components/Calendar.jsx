@@ -46,10 +46,10 @@ function Calendar() {
     return new Promise((resolve) => {
       let year1 = (year + oldt) % 4;
       let yearType =
-        year1 === 0 || year1 === 4 ? "Yohans year" :
-        year1 === 1 ? "Matyos year" :
-        year1 === 2 ? "Markos year" :
-        year1 === 3 ? "Lukas year" :
+        year1 === 0 || year1 === 4 ? "ዮሐንስ ዘመን" :
+        year1 === 1 ? "ማቴዎስ ዘመን" :
+        year1 === 2 ? "ማርቆስ ዘመን" :
+        year1 === 3 ? "ሉቃስ ዘመን" :
         "Invalid year";
 
       resolve(yearType);
@@ -65,13 +65,13 @@ function Calendar() {
       let zemen = yeart % 7;
 
       let day =
-        zemen === 0 ? "Monday" :
-        zemen === 1 ? "Tuesday" :
-        zemen === 2 ? "Wednesday" :
-        zemen === 3 ? "Thursday" :
-        zemen === 4 ? "Friday" :
-        zemen === 5 ? "Saturday" :
-        zemen === 6 ? "Sunday" :
+        zemen === 0 ? "ሰኞ" :
+        zemen === 1 ? "ማክሰኞ" :
+        zemen === 2 ? "ረቡዕ" :
+        zemen === 3 ? "ሐሙስ" :
+        zemen === 4 ? "ዓርብ" :
+        zemen === 5 ? "ቅዳሜ" :
+        zemen === 6 ? "እሁድ" :
         "Invalid year";
 
       resolve(day);
