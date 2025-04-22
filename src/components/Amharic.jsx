@@ -351,7 +351,7 @@ function Amharic() {
 
 <div class="text-center mt-4">
   <a 
-    href="../assets/baherehasab.pdf" 
+    href="/baherehasab.pdf" 
     download="baherehasab.pdf" 
     class="text-blue-600 hover:text-blue-800 underline"
   >
@@ -361,7 +361,8 @@ function Amharic() {
 
 <div class="text-center mt-2">
   <a 
-    href="../assets/ባሕረ ሐሳብ - ጌታቸው ኃይሌ.pdf" 
+    
+    href="/ባሕረ ሐሳብ - ጌታቸው ኃይሌ.pdf" 
     download="ባሕረ_ሐሳብ_ጌታቸው_ኃይሌ.pdf" 
     class="text-blue-600 hover:text-blue-800 underline"
   >
