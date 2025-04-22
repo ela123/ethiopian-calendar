@@ -1,8 +1,13 @@
 import React from 'react'
+import Footer from './Footer'
+import Header from './Header'
 
 function English() {
   return (
-    <div className='justify-center flex p-10'>
+    <div>
+            <Header />
+
+          <div className='justify-center flex p-10'>
         
         <div className='lex-col  justify-center flex flex-col  max-w-[950px] items-center bg-gray-200 p-5 rounded-[8px] border-1 border-yellow-300 border-solid'>
                 <h1 className='text-black text-[20px] font-bold'>Bahire Hasab - ባሕረ ሃሳብ - The Ethiopian Calendar</h1>
@@ -467,11 +472,10 @@ For Debre Zeit, the number of days after Nineveh is 41, so 41 divided by 30 = 1 
     ባሕረ ሐሳብ - ጌታቸው ኃይሌ (5.4MB)
   </a>
 </div>
-
-
-
-
-        </div>
+      
+    </div>
+    </div>
+    <Footer/>
     </div>
   )
 }

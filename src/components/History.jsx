@@ -1,6 +1,5 @@
 import React from 'react'
 import { FaArrowRight } from "react-icons/fa";
-import English from './English';
 import { Link } from 'react-router-dom';
 
 function History() {
@@ -19,6 +18,7 @@ function History() {
 The Ethiopian Calendar has much in common with the Coptic-Egyptian Calendar but not identical. The two calendars differ with regards to the time and observation of Saints' days. Pope Demetrios of the Church of Alexandria(seat of St. Mark) utilized Mitonic cycles. The calculations of Claudius Ptolemy and the Egyptian calendar were to establish the rules for calculating Easter on the day of a particular New Year.
                 </p>
                 <div className='flex flex-row justify-end text-[#0E008E] hover:text-black items-center gap-2'>
+                <Link to="/English">Read More</Link>
 
   <FaArrowRight />
 </div>

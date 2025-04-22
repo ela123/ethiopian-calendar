@@ -18,7 +18,7 @@ const Home = () => {
   </div>
   <div>
       <div className='border-2 border-yellow-300 rounded-[15px]'>
-      <img src="src/assets/Getatchew_Haile.JPG" className="w-[389px] h-[300px] rounded-[15px] object-cover"  alt="" />
+      <img src="src/assets/Getatchew_Haile.JPG" className="w-[389px] h-[500px] rounded-[15px] object-cover"  alt="" />
       </div>
   </div>
   
