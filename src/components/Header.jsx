@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-
+import vecte from '../assets/vecte.png';
 export default function Header({ scrollToSection = {} }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,8 +17,8 @@ export default function Header({ scrollToSection = {} }) {
       <div className="max-w-7xl mx-auto flex justify-evenly items-center">
         {/* Logo */}
         <div className='flex items-center gap-2'>
-          <img src='src/assets/vecte.png' className='h-[50px] w-[100px]' alt="logo" />
-          <h1 className='text-[25px]'>Ethiopian Calendar</h1>
+        <img src={vecte} className="h-[50px] w-[100px]" alt="logo" />
+        <h1 className='text-[25px]'>Ethiopian Calendar</h1>
         </div>
 
         {/* Desktop Menu */}

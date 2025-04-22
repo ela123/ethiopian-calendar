@@ -1,12 +1,13 @@
 import React from 'react'
+import Getatchew from '../assets/Getatchew_Haile.jpg';
 
 const Home = () => {
   return (
 
       
       
-<div className='flex flex-raw mx-auto  justify-evenly items-center  p-30 md:flex-nowrap md:flex-row flex-col gap-4 bg-black/70 ' >
-  <div className="flex-col text-center justify-center min-h-35 max-w-[400px] items-center bg-gray-200 p-5 rounded-[8px] border-1 border-yellow-300">
+<div className='flex flex-raw md:min-w-55  justify-evenly items-center  p-30 md:flex-nowrap  md:flex-row flex-col gap-4 bg-black/70 ' >
+  <div className="flex-col text-center justify-center  min-h-35 max-w-[400px] items-center bg-gray-200 p-5 rounded-[8px] border-1 border-yellow-300">
   <h1 className='text-black text-[20px] font-bold'>ጌታቸው ኀይሌ[ 1957–2021] </h1>
   <br></br>
   <p className='text-black text-[13px] font-auto'>
@@ -18,7 +19,7 @@ const Home = () => {
   </div>
   <div>
       <div className='border-2 border-yellow-300 rounded-[15px]'>
-      <img src="src/assets/Getatchew_Haile.JPG" className="w-[389px] h-[500px] rounded-[15px] object-cover"  alt="" />
+      <img src={Getatchew} className="w-[389px] h-[500px] rounded-[15px] object-cover"  alt="" />
       </div>
   </div>
   

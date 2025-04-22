@@ -1,14 +1,18 @@
 import React from 'react'
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-
+import AbbaDemetrius from '../assets/Abba Demetrius I, 12th Pope of Alexandria.jpg';
 function History() {
   return (
     
         <div className='flex flex-col  mx-auto   justify-evenly items-center  p-30 md:flex-nowrap md:flex-row  gap-4 bg-black/70 '>
         <div>
-                <img src="src/assets/Abba Demetrius I, 12th Pope of Alexandria.jpg" className='w-[389px] h-[500px] rounded-[15px] object-cover'  alt="" srcset="" />
-            </div>    
+        <img
+  src={AbbaDemetrius}
+  className="w-[389px] h-[500px] rounded-[15px] object-cover"
+  alt="Abba Demetrius I, 12th Pope of Alexandria"
+/>
+ </div>    
             <div className='flex-col text-center justify-center flex min-h-55 max-w-[550px] items-center bg-gray-200 p-5 rounded-[8px] border-1 border-yellow-300 border-solid'>
                 <h1 className='text-black text-[20px] font-bold'>Bahire Hasab - ባሕረ ሃሳብ - The Ethiopian Calendar</h1>
                 <br></br>
