@@ -343,12 +343,36 @@ function Amharic() {
     <p class="text-gray-700 mb-2">4. የማኅበረ ቅዱሳን ብሎግ</p>
 
 </div>
+
+</div>
+<div class="text-center font-medium mt-3">
+   ለመማር እባክዎን እነዚህን ፋይሎች ያውርዱ፡፡
+</div>
+
+<div class="text-center mt-4">
+  <a 
+    href="../assets/baherehasab.pdf" 
+    download="baherehasab.pdf" 
+    class="text-blue-600 hover:text-blue-800 underline"
+  >
+    Baherehasab (1MB)
+  </a>
+</div>
+
+<div class="text-center mt-2">
+  <a 
+    href="../assets/ባሕረ ሐሳብ - ጌታቸው ኃይሌ.pdf" 
+    download="ባሕረ_ሐሳብ_ጌታቸው_ኃይሌ.pdf" 
+    class="text-blue-600 hover:text-blue-800 underline"
+  >
+    ባሕረ ሐሳብ - ጌታቸው ኃይሌ (5.4MB)
+  </a>
 </div>
 </div>
-        
-                
-        </div>
+ </div>
+ 
     </div>
+
     <Footer/>
     </div>
   )

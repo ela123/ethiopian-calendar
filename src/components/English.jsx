@@ -455,7 +455,7 @@ For Debre Zeit, the number of days after Nineveh is 41, so 41 divided by 30 = 1 
 
 <div class="text-center mt-4">
   <a 
-    href="src/assets/baherehasab.pdf" 
+    href="../assets/baherehasab.pdf" 
     download="baherehasab.pdf" 
     class="text-blue-600 hover:text-blue-800 underline"
   >
@@ -465,7 +465,7 @@ For Debre Zeit, the number of days after Nineveh is 41, so 41 divided by 30 = 1 
 
 <div class="text-center mt-2">
   <a 
-    href="src/assets/ባሕረ ሐሳብ - ጌታቸው ኃይሌ.pdf" 
+    href="../assets/ባሕረ ሐሳብ - ጌታቸው ኃይሌ.pdf" 
     download="ባሕረ_ሐሳብ_ጌታቸው_ኃይሌ.pdf" 
     class="text-blue-600 hover:text-blue-800 underline"
   >
